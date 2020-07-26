@@ -48,16 +48,14 @@ const useStyles = makeStyles((theme) => ({
     sizes:'large'
   },
   cardHeader: {
-    fontSize: '20px',
     textAlign: 'center',
     fontWeight: 800,
     fontSize: '30px'
 }
 }));
 
-export default function SignIn() {
+export default function LandingPage() {
   const classes = useStyles();
-
   return (
     <Container component="main" maxWidth="xs" className={classes.container}>
       <div className={classes.root}>

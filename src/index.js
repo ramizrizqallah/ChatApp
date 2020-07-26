@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LandingPage from './Components/LandingPage.js'
+import LogIn from './components/LogIn';
+
 ReactDOM.render(
   <React.StrictMode>
-    <LandingPage/>
+    <LogIn/>
   </React.StrictMode>,
   document.getElementById('root')
 );
+

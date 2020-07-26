@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LogIn from './components/LogIn';
+import LogIn from './Components/LogIn';
+import LandingPage from './Components/LandingPage'
 
 ReactDOM.render(
   <React.StrictMode>
-    <LogIn/>
+    <LandingPage/>
+    {/* <LogIn/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

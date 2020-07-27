@@ -20,7 +20,7 @@ export class LogIn extends Component {
                         name="password"
                         id="password"
                         placeholder="Password"
-                        pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^*()]).{8,}' 
+                        pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^*()]).{8,}'
                     />
                 </div>
                 <button type="submit" value="Submit">Sign In</button>

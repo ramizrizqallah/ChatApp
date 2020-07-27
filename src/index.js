@@ -5,8 +5,8 @@ import LandingPage from './Components/LandingPage'
 
 ReactDOM.render(
   <React.StrictMode>
-    <LandingPage/>
-    {/* <LogIn/> */}
+    {/* <LandingPage/> */}
+    <LogIn/>
   </React.StrictMode>,
   document.getElementById('root')
 );

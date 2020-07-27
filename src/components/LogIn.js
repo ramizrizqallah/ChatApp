@@ -4,7 +4,7 @@ import '../style/common.css';
 export class LogIn extends Component {
 
     render() {
-        return (
+        return ( 
             <div className="card">
             <div className="cardHeader">WELCOME</div>
             <div className="inputGroup">

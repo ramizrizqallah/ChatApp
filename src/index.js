@@ -8,8 +8,8 @@ import LogIn from './Components/LogIn';
 ReactDOM.render(
   <React.StrictMode>
     {/* <LandingPage /> */}
-    <RegisterForm />
-    {/* <LogIn /> */}
+    {/* <RegisterForm /> */}
+    <LogIn />
 
   </React.StrictMode>,
   document.getElementById('root')

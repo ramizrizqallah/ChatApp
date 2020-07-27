@@ -5,6 +5,7 @@ export class LogIn extends Component {
 
     render() {
         return ( 
+            <form>
             <div className="card">
                 <div className="cardHeader">WELCOME</div>
                 <div className="inputGroup">
@@ -23,6 +24,7 @@ export class LogIn extends Component {
                 </div>
                 <button>Sign In</button>
             </div>
+            </form>
         )
     }
 }

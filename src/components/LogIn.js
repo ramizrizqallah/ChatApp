@@ -4,7 +4,7 @@ import '../style/common.css';
 export class LogIn extends Component {
 
     render() {
-        return ( 
+        return (
             <form>
             <div className="card">
                 <div className="cardHeader">WELCOME</div>
@@ -13,16 +13,17 @@ export class LogIn extends Component {
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="Email"
+                        placeholder="sophie@example.com"
                     />
                     <input
                         type="password"
                         name="password"
                         id="password"
                         placeholder="Password"
+                        pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^*()]).{8,}'
                     />
                 </div>
-                <button>Sign In</button>
+                <button type="submit" value="Submit">Sign In</button>
             </div>
             </form>
         )

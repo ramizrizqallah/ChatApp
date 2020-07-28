@@ -9,4 +9,9 @@ db.once("open", function() {
   console.log("We are connected");
 });
 
-  module.exports= {Message: require('./models/message')}
+module.exports = {
+  User:require('./models/user'),
+  ChatRoom:require('./models/chatRoom'),
+  Message: require('./models/message')
+}
+  

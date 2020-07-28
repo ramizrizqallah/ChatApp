@@ -11,12 +11,7 @@
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "mongoose": "^5.9.25",
-<<<<<<< HEAD
-=======
-    "axios": "^0.19.2",
     "mongodb": "^3.5.9",
-    "mongoose": "^5.9.25",
->>>>>>> ac823d3a3c15ffd557f418553298492883ea820a
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",

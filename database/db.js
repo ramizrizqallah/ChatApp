@@ -9,4 +9,4 @@ db.once("open", function() {
   console.log("We are connected");
 });
 
-   
+  module.exports= {Message: require('./models/message')}

@@ -9,7 +9,6 @@ import Admin from './Components/Admin';
 
 function Routing(props) {
     const [authTokens, setAuthTokens] = useState();
-
     const setTokens = (data) => {
         localStorage.setItem("tokens", JSON.stringify(data));
         setAuthTokens(data);

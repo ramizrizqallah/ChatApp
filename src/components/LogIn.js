@@ -1,30 +1,64 @@
 import React, { Component } from 'react';
 import '../style/common.css';
+import { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import axios from 'axios';
+import { useAuth } from "../context/auth";
 
-export class LogIn extends Component {
 
-    render() {
-        return (
-            <div className="card">
-                <div className="cardHeader">WELCOME</div>
-                <div className="inputGroup">
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="Password"
-                    />
-                </div>
-                <button>Sign In</button>
-            </div>
-        )
+function Login(props) {
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const { setAuthTokens } = useAuth();
+    // const referer = props.location.state.referer || '/';
+
+    function postLogin() {
+        axios.post("https://www.somePlace.com/auth/login", {
+            userName,
+            password
+        }).then(result => {
+            if (result.status === 200) {
+                setAuthTokens(result.data);
+                setLoggedIn(true);
+            } else {
+                setIsError(true);
+            }
+        }).catch(e => {
+            setIsError(true);
+        });
     }
+    if (isLoggedIn) {
+        return <Redirect to={{ pathname: "/login" }} />;
+    }
+
+    return (
+        <div className="card">
+            <div className="cardHeader">WELCOME</div>
+            <div className="inputGroup">
+
+                <input
+                    type="email"
+                    value={userName}
+                    onChange={e => {
+                        setUserName(e.target.value);
+                    }}
+                    placeholder="Email"
+                />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={e => {
+                        setPassword(e.target.value);
+                    }}
+                    placeholder="password"
+                />
+                <button onClick={postLogin}>Sign In</button>
+            </div>
+        </div>
+    )
 }
 
-export default LogIn
+
+export default Login;

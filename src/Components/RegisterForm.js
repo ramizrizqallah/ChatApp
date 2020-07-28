@@ -7,7 +7,7 @@ class RegisterForm extends React.Component {
         return (
             <div className="card">
                 <div className="cardHeader">Create Account</div>
-                <div className="inputGroup">
+                <form className="inputGroup">
                     <input
                         type="text"
                         name="name"
@@ -32,7 +32,7 @@ class RegisterForm extends React.Component {
                         id="password"
                         placeholder="Confirm Password"
                     />
-                </div>
+                </form>
                 <button>Sign Up</button>
             </div>
         );

@@ -11,6 +11,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.25",
     "axios": "^0.19.2",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.25",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"

@@ -57,7 +57,6 @@ const addChatRoom = (req,res,next)=>{
 
 
 // delete a user
-
 const deleteChatRoom =(req,res,next) =>{
     let chatRoomID = req.body.chatRoomID
 

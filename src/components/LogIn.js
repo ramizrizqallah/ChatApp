@@ -1,60 +1,71 @@
 import React, { Component } from 'react';
 import '../style/common.css';
+import { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import axios from 'axios';
+import { useAuth } from "../context/auth";
 
-export class LogIn extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            username:'',
-            password:''
-        }
+
+function Login(props) {
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+    const { setAuthTokens } = useAuth();
+
+    // const referer = props.location.state.referer || '/';
+
+    function postLogin() {
+        axios.post("https://www.somePlace.com/auth/login", {
+            userName,
+            password
+        }).then(result => {
+            if (result.status === 200) {
+                setAuthTokens(result.data);
+                setLoggedIn(true);
+            } else {
+                setIsError(true);
+            }
+        }).catch(e => {
+            setIsError(true);
+        });
     }
-
-    handleUsernameChange = e =>{
-    this.setState({
-        username:e.target.value
-    })
+    if (isLoggedIn) {
+        return <Redirect to={{ pathname: "/login" }} />;
     }
-    handlePasswordChange = e =>{
-        this.setState({
-            password:e.target.value
-        })
-        }
-
-    handleChange = e =>{
-    alert(`${this.state.username}  ${this.state.password}`)
-    e.preventDefault()
-    }    
-
-    render() {
-        return (
-            <form onSubmit={this.handleChange}>
+    return (
+        <form>
             <div className="card">
                 <div className="cardHeader">WELCOME</div>
                 <div className="inputGroup">
+
                     <input
                         type="email"
                         name="email"
                         id="email"
                         placeholder="sophie@example.com"
-                        value={this.state.username} 
-                        onChange={this.handleUsernameChange}
+                        value={userName}
+                        onChange={e => {
+                            setUserName(e.target.value);
+                        }}
                     />
                     <input
                         type="password"
                         name="password"
                         id="password"
-                        placeholder="Password"
+                        placeholder="password"
+                        value={password}
                         pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^*()]).{8,}'
-                        value={this.state.password} 
-                        onChange={this.handlePasswordChange}
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
                     />
+                    <button type="submit" value="Submit" onClick={postLogin}>Sign In</button>
                 </div>
-                <button type="submit" value="Submit">Sign In</button>
             </div>
-            </form>
-        )
-    }
+        </form>
+    )
 }
 
-export default LogIn
+
+export default Login;

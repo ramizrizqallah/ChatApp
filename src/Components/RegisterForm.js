@@ -1,15 +1,15 @@
 import React from "react";
 import '../style/common.css';
-const axios =  require('axios')
+const axios = require('axios')
 
 class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            name:'',
-            email:'',
-            password:'',
+            name: '',
+            email: '',
+            password: '',
 
             pass: '',
             passTwo: '',
@@ -52,7 +52,7 @@ class RegisterForm extends React.Component {
                 password: finalPass,
                 message: "",
             })
-            
+
             event.preventDefault();
             //console.log("Matching passwords")
             // send a POST request
@@ -63,7 +63,7 @@ class RegisterForm extends React.Component {
                     fullName: this.state.name,
                     email: this.state.email,
                     password: this.state.password,
-                    
+
                 }
             });
         }

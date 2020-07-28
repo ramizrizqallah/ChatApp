@@ -8,6 +8,7 @@ const morgan = require('morgan')
 const MessageRoute = require('../routes/message')
 const userRoute = require('../routes/user')
 const chatRoomRoute = require('../routes/chatRoom') 
+const authRouter = require('../routes/authRouter')
 
 // var db = require("../database");
 app.use(morgan('dev'))
@@ -30,3 +31,4 @@ app.listen(5000, () => {
 app.use('/api/user',userRoute)
 app.use('/api/chatRoom',chatRoomRoute)
 app.use('/api/message' , MessageRoute)
+app.use('/api/auth' , authRouter)

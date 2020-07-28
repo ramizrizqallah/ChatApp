@@ -11,5 +11,7 @@ db.once("open", function() {
 
 module.exports = {
   User:require('./models/user'),
-  ChatRoom:require('./models/chatRoom')
+  ChatRoom:require('./models/chatRoom'),
+  Message: require('./models/message')
 }
+  

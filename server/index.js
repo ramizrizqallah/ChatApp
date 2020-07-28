@@ -4,6 +4,8 @@ const app = express(); // create express app
 var bodyParser = require("body-parser");
 const morgan = require('morgan')
 
+//importing Message and user and chatroom Route
+const MessageRoute = require('../routes/message')
 const userRoute = require('../routes/user')
 const chatRoomRoute = require('../routes/chatRoom') 
 
@@ -11,6 +13,8 @@ const chatRoomRoute = require('../routes/chatRoom')
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
 
 // add middleware
 app.use(express.static(path.join(__dirname, "..", "build")));
@@ -25,3 +29,4 @@ app.listen(5000, () => {
 
 app.use('/api/user',userRoute)
 app.use('/api/chatRoom',chatRoomRoute)
+app.use('/api/message' , MessageRoute)

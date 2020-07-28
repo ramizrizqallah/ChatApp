@@ -9,4 +9,7 @@ db.once("open", function() {
   console.log("We are connected");
 });
 
-   
+module.exports = {
+  User:require('./models/user'),
+  ChatRoom:require('./models/chatRoom')
+}

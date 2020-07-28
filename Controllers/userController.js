@@ -1,6 +1,7 @@
 //const User = require('../database/models/user')
 const db = require('../database/db')
 const { response } = require('express')
+const bcrypt = require('bcryptjs')
 
 
 // show the list of user

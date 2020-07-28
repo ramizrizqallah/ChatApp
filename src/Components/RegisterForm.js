@@ -1,18 +1,31 @@
 import React from "react";
 import '../style/common.css';
-
+const axios =  require('axios')
 
 class RegisterForm extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            name:'',
+            email:'',
+            password:'',
+
             pass: '',
             passTwo: '',
             message: '',
         }
     }
-
+    onName = (e) => {
+        this.setState({
+            name: e.target.value
+        })
+    }
+    onEmail = (e) => {
+        this.setState({
+            email: e.target.value
+        })
+    }
     firstPass = (e) => {
         this.setState({
             pass: e.target.value
@@ -24,6 +37,8 @@ class RegisterForm extends React.Component {
         })
     }
     handleSubmit = (event) => {
+
+
         if (this.state.pass != this.state.passTwo) {
             event.preventDefault();
             this.setState({
@@ -32,11 +47,25 @@ class RegisterForm extends React.Component {
 
         }
         else {
+            let finalPass = this.state.pass
             this.setState({
-                message: ""
+                password: finalPass,
+                message: "",
             })
+            
             event.preventDefault();
-            console.log("Matching passwords")
+            //console.log("Matching passwords")
+            // send a POST request
+            axios({
+                method: 'post',
+                url: 'http://localhost:5000/api/user/store',
+                data: {
+                    fullName: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password,
+                    
+                }
+            });
         }
 
     }
@@ -52,6 +81,7 @@ class RegisterForm extends React.Component {
                             name="name"
                             id="name"
                             placeholder="Full Name"
+                            onChange={this.onName}
                         />
                         <input
                             type="email"
@@ -60,6 +90,7 @@ class RegisterForm extends React.Component {
                             placeholder="Email"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                             title="Email must look similar to this example@example.com"
+                            onChange={this.onEmail}
                         />
                         <input
                             type="password"
@@ -80,11 +111,11 @@ class RegisterForm extends React.Component {
                             title="Password must contain Uppercase, Lowercase, Numbers, and Symbols"
                             onChange={this.secondPass}
                         />
-                    <label
-                        style={{
-                            color: 'red',
-                        }}
-                    >{this.state.message}</label>
+                        <label
+                            style={{
+                                color: 'red',
+                            }}
+                        >{this.state.message}</label>
 
                     </div>
 

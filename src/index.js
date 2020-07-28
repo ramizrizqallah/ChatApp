@@ -4,11 +4,14 @@ import LandingPage from './Components/LandingPage.js';
 import RegisterForm from './Components/RegisterForm';
 import './style/common.css';
 import LogIn from './Components/LogIn';
+import Routing from './Routing';
+
 
 ReactDOM.render(
   <React.StrictMode>
+    <Routing />
     {/* <LandingPage /> */}
-    <RegisterForm />
+    {/* <RegisterForm /> */}
     {/* <LogIn /> */}
 
   </React.StrictMode>,

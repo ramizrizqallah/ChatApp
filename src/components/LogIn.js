@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../style/common.css';
+import { Link } from 'react-router-dom';
 
 export class LogIn extends Component {
 
@@ -24,8 +25,11 @@ export class LogIn extends Component {
                     />
                 </div>
                 <button type="submit" value="Submit">Sign In</button>
+            
             </div>
+            
             </form>
+            
         )
     }
 }

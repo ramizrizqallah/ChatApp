@@ -36,7 +36,7 @@ const showChatRoom = (req,res,next) =>{
 // add new user
 const addChatRoom = (req,res,next)=>{
     let chatRoom = new db.ChatRoom({
-        name:req.body.fullName,
+        name:req.body.name,
         Id:req.body.Id,
         listOfMembers:req.body.listOfMembers,
         listOfMessages:req.body.listOfMessages

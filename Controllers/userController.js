@@ -2,19 +2,18 @@
 const db = require('../database/db')
 const { response } = require('express')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
 
 // show the list of user
 // next mean go to next execution
-const index = (req,res,next) => {
+const index = (req, res, next) => {
     // return all of the user in the db
-    db.User.find().then(response =>{
+    db.User.find().then(response => {
         // if is okay return response
         res.json({
             response
         })
         // if not return an error
-    }).catch(error =>{
+    }).catch(error => {
         res.json({
             message: 'an Error occurred'
         })
@@ -22,102 +21,106 @@ const index = (req,res,next) => {
 }
 
 // show single user
-const showUser = (req,res,next) =>{
+const showUser = (req, res, next) => {
     let userID = req.body.userID
-    db.User.findById(userID).then(response =>{
+    db.User.findById(userID).then(response => {
         // if is okay return response
         res.json({
             response
         })
         // if not return an error
-    }).catch(error =>{
+    }).catch(error => {
         res.json({
             message: 'an Error occurred'
         })
     })
 }
+
 // add new user
-const addUser = (req,res,next)=>{
-    bcrypt.hash(req.body.password,10,function(err,hashedPass){
-        if(err){
+const addUser = (req, res, next) => {
+    bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
+        if (err) {
             res.json({
-                error:err
+                error: err
             })
         }
-    })
-    let user = new db.User({
-        fullName:req.body.fullName,
-        Id:req.body.Id,
-         bio:req.body.bio,
-         avatar:req.body.avatar,
-         listOfFriends:req.body.listOfFriends,
-         listOfChatRoom:req.body.listOfChatRoom,
-         password:req.body.password,
-         email:req.body.email,
-         numberOfUnRead:req.body.numberOfUnRead
+        let user = new db.User({
+            fullName: req.body.fullName,
+            Id: req.body.Id,
+            bio: req.body.bio,
+            avatar: req.body.avatar,
+            listOfFriends: req.body.listOfFriends,
+            listOfChatRoom: req.body.listOfChatRoom,
+            password: hashedPass,
+            email: req.body.email,
+            numberOfUnRead: req.body.numberOfUnRead
 
-    })
-    user.save().then(response =>{
-        // if is okay return response
-        res.json({
-            message: 'user Added successfully'
         })
-        // if not return an error
-    }).catch(error =>{
-        res.json({
-            message: 'an Error occurred'
+        user.save().then(response => {
+            // if is okay return response
+            res.json({
+                message: 'user Added successfully'
+            })
+            // if not return an error
+        }).catch(error => {
+            res.json({
+                message: 'an Error occurred'
+            })
         })
     })
+
+
 }
 
+
 //update a user
-const updateUser = (req,res,next)=>{
+const updateUser = (req, res, next) => {
     let userID = req.body.userID
 
     let updateData = {
-        fullName:req.body.fullName,
-        Id:req.body.Id,
-        bio:req.body.bio,
-        avatar:req.body.avatar,
-        listOfFriends:req.body.listOfFriends,
-        listOfChatRoom:req.body.listOfChatRoom,
-        email:req.body.email,
-        password:req.body.password,
-        numberOfUnRead:req.body.numberOfUnRead 
+        fullName: req.body.fullName,
+        Id: req.body.Id,
+        bio: req.body.bio,
+        avatar: req.body.avatar,
+        listOfFriends: req.body.listOfFriends,
+        listOfChatRoom: req.body.listOfChatRoom,
+        email: req.body.email,
+        password: req.body.password,
+        numberOfUnRead: req.body.numberOfUnRead
     }
 
-    db.User.findByIdAndUpdate(userID,{$set:updateData})
-    .then(() =>{
-        res.json({
-            message: 'user updated successfully'
+    db.User.findByIdAndUpdate(userID, { $set: updateData })
+        .then(() => {
+            res.json({
+                message: 'user updated successfully'
+            })
+        }).catch(error => {
+            res.json({
+                message: 'an Error occurred'
+            })
         })
-    }).catch(error =>{
-        res.json({
-            message: 'an Error occurred'
-        })
-    })
 }
 
 // delete a user
 
-const deleteUser =(req,res,next) =>{
+const deleteUser = (req, res, next) => {
     let userID = req.body.userID
 
     db.User.findByIdAndDelete(userID)
-    .then(() =>{
-        res.json({
-            message: 'user deleted successfully'
+        .then(() => {
+            res.json({
+                message: 'user deleted successfully'
+            })
+        }).catch(error => {
+            res.json({
+                message: 'an Error occurred'
+            })
         })
-    }).catch(error =>{
-        res.json({
-            message: 'an Error occurred'
-        })
-    })
 }
 
 
 
 module.exports = {
- index,updateUser,showUser,deleteUser,
-addUser
+    index, updateUser, showUser, deleteUser,
+    addUser
 }

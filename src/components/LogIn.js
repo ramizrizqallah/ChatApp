@@ -12,6 +12,7 @@ function Login(props) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { setAuthTokens } = useAuth();
+
     // const referer = props.location.state.referer || '/';
 
     function postLogin() {
@@ -32,31 +33,37 @@ function Login(props) {
     if (isLoggedIn) {
         return <Redirect to={{ pathname: "/login" }} />;
     }
-
     return (
-        <div className="card">
-            <div className="cardHeader">WELCOME</div>
-            <div className="inputGroup">
+        <form>
+            <div className="card">
+                <div className="cardHeader">WELCOME</div>
+                <div className="inputGroup">
 
-                <input
-                    type="email"
-                    value={userName}
-                    onChange={e => {
-                        setUserName(e.target.value);
-                    }}
-                    placeholder="Email"
-                />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={e => {
-                        setPassword(e.target.value);
-                    }}
-                    placeholder="password"
-                />
-                <button onClick={postLogin}>Sign In</button>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="sophie@example.com"
+                        value={userName}
+                        onChange={e => {
+                            setUserName(e.target.value);
+                        }}
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="password"
+                        value={password}
+                        pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^*()]).{8,}'
+                        onChange={e => {
+                            setPassword(e.target.value);
+                        }}
+                    />
+                    <button type="submit" value="Submit" onClick={postLogin}>Sign In</button>
+                </div>
             </div>
-        </div>
+        </form>
     )
 }
 

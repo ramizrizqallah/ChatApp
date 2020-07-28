@@ -7,9 +7,9 @@ import LogIn from './Components/LogIn';
 
 ReactDOM.render(
   <React.StrictMode>
-     {/* <LandingPage /> 
-    <RegisterForm /> */}
-    { <LogIn /> }
+     {/* <LandingPage />  */}
+    <RegisterForm /> 
+    {/* { <LogIn /> } */}
 
   </React.StrictMode>,
   document.getElementById('root')

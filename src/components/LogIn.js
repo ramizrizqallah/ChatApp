@@ -16,9 +16,14 @@ function Login(props) {
     // const referer = props.location.state.referer || '/';
 
     function postLogin() {
-        axios.post("https://www.somePlace.com/auth/login", {
-            userName,
-            password
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/api/user/login',
+            data: {
+                email: userName,
+                password: password,
+
+            }
         }).then(result => {
             if (result.status === 200) {
                 setAuthTokens(result.data);

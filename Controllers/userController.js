@@ -1,7 +1,8 @@
 //const User = require('../database/models/user')
 const db = require('../database/db')
-const { response } = require('express')
+const  {response}  = require('express')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 // show the list of user
 // next mean go to next execution
@@ -36,6 +37,40 @@ const showUser = (req, res, next) => {
     })
 }
 
+const login = (req,res,next)=>{
+    let email = req.body.userName
+    let password = req.body.password
+
+    db.User.findOne({email:email}  )
+    .then(user => {
+        if (user) { 
+            bcrypt.hash(req.body.password, 10, function (err, hashedPass1) {
+                bcrypt.compare(hashedPass1,user.password, function(err,result){
+                    if (err) {
+                        res.json({
+                            error:err
+                        })
+                    }
+                    if(result) {
+                        console.log("user:",user)
+                        res.json({
+                            message:'Login Successful' + checkPass 
+                        })
+                    }else{
+                        res.json({
+                            message:'Password does not matched' +hashedPass1 +"---"+ user.password
+                        })
+                    }
+                })
+            })
+        } else {
+            res.json({
+                message:'No user found'
+            })
+        }
+    })
+}
+
 // add new user
 const addUser = (req, res, next) => {
     bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
@@ -54,22 +89,23 @@ const addUser = (req, res, next) => {
             password: hashedPass,
             email: req.body.email,
             numberOfUnRead: req.body.numberOfUnRead
-
         })
-        user.save().then(response => {
+        user.save()
+        .then(user => {
             // if is okay return response
             res.json({
                 message: 'user Added successfully'
             })
             // if not return an error
-        }).catch(error => {
+        })
+        .catch(error => {
             res.json({
                 message: 'an Error occurred'
             })
         })
     })
-
-
+       
+        
 }
 
 
@@ -119,8 +155,7 @@ const deleteUser = (req, res, next) => {
 }
 
 
-
 module.exports = {
     index, updateUser, showUser, deleteUser,
-    addUser
+    addUser,login
 }

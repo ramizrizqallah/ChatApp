@@ -37,77 +37,9 @@ const showUser = (req, res, next) => {
     })
 }
 
-const login = (req,res,next)=>{
-    let email = req.body.userName
-    let password = req.body.password
-
-    db.User.findOne({email:email}  )
-    .then(user => {
-        if (user) { 
-            bcrypt.compare(password,user.password, function(err,result){
-                if (err) {
-                    res.json({
-                        error:err
-                    })
-                }
-                if(result) {
-                    console.log("user:",user)
-                    res.json({
-                        message:'Login Successful',
-                        token
-                    })
-                }else{
-                    res.json({
-                        message:'Password does not matched' +user.password + password
-                    })
-                }
-            })
-        } else {
-            res.json({
-                message:'No user found'
-            })
-        }
-    })
-}
 
 // add new user
 const addUser = (req, res, next) => {
-<<<<<<< HEAD
-    bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
-        if (err) {
-            res.json({
-                error: err
-            })
-        }
-        let user = new db.User({
-            fullName: req.body.fullName,
-            Id: req.body.Id,
-            bio: req.body.bio,
-            avatar: req.body.avatar,
-            listOfFriends: req.body.listOfFriends,
-            listOfChatRoom: req.body.listOfChatRoom,
-            password: hashedPass,
-            email: req.body.email,
-            numberOfUnRead: req.body.numberOfUnRead,
-            gender:req.body.gender
-        })
-        user.save()
-        .then(user => {
-            // if is okay return response
-            res.json({
-                message: 'user Added successfully'
-            })
-            // if not return an error
-        })
-        .catch(error => {
-            res.json({
-                message: 'an Error occurred'
-            })
-        })
-    })
-       
-        
-=======
     let userEmail = req.body.email
     console.log("User Email is",userEmail)
     db.User.find( { email: userEmail } ).count()
@@ -160,7 +92,6 @@ const addUser = (req, res, next) => {
 
 
 
->>>>>>> f7a78462dc6d9073984377f04fe32f2b576316f2
 }
 
 
@@ -213,5 +144,5 @@ const deleteUser = (req, res, next) => {
 
 module.exports = {
     index, updateUser, showUser, deleteUser,
-    addUser,login
+    addUser
 }

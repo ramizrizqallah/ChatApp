@@ -44,24 +44,23 @@ const login = (req,res,next)=>{
     db.User.findOne({email:email}  )
     .then(user => {
         if (user) { 
-            bcrypt.hash(req.body.password, 10, function (err, hashedPass1) {
-                bcrypt.compare(hashedPass1,user.password, function(err,result){
-                    if (err) {
-                        res.json({
-                            error:err
-                        })
-                    }
-                    if(result) {
-                        console.log("user:",user)
-                        res.json({
-                            message:'Login Successful' + checkPass 
-                        })
-                    }else{
-                        res.json({
-                            message:'Password does not matched' +hashedPass1 +"---"+ user.password
-                        })
-                    }
-                })
+            bcrypt.compare(password,user.password, function(err,result){
+                if (err) {
+                    res.json({
+                        error:err
+                    })
+                }
+                if(result) {
+                    console.log("user:",user)
+                    res.json({
+                        message:'Login Successful',
+                        token
+                    })
+                }else{
+                    res.json({
+                        message:'Password does not matched' +user.password + password
+                    })
+                }
             })
         } else {
             res.json({
@@ -88,7 +87,8 @@ const addUser = (req, res, next) => {
             listOfChatRoom: req.body.listOfChatRoom,
             password: hashedPass,
             email: req.body.email,
-            numberOfUnRead: req.body.numberOfUnRead
+            numberOfUnRead: req.body.numberOfUnRead,
+            gender:req.body.gender
         })
         user.save()
         .then(user => {
@@ -122,7 +122,8 @@ const updateUser = (req, res, next) => {
         listOfChatRoom: req.body.listOfChatRoom,
         email: req.body.email,
         password: req.body.password,
-        numberOfUnRead: req.body.numberOfUnRead
+        numberOfUnRead: req.body.numberOfUnRead,
+        gender:req.body.gender
     }
 
     db.User.findByIdAndUpdate(userID, { $set: updateData })

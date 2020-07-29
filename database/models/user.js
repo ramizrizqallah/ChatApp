@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema({
     },
     numberOfUnRead:{
         type:Number
+    },
+    gender:{
+        type:String
     }
 },
     {timestamps:true})

@@ -8,6 +8,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import RegisterForm from './RegisterForm';
+import LogIn from './LogIn';
+import { useHistory } from "react-router-dom";
+
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -25,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    
+
   },
   main: {
     marginTop: theme.spacing(10),
@@ -33,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(60),
     justifyContent: "center"
   },
-  buttons:{
+  buttons: {
     background: 'black',
     borderRadius: 10,
     padding: theme.spacing(2),
@@ -45,32 +51,33 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     marginLeft: theme.spacing(22),
     backgroundColor: 'balck',
-    sizes:'large'
+    sizes: 'large'
   },
   cardHeader: {
     textAlign: 'center',
     fontWeight: 800,
     fontSize: '30px'
-}
+  }
 }));
 
-export default function LandingPage() {
+export default function LandingPage(props) {
   const classes = useStyles();
+  const history = useHistory();
+
   return (
+
     <Container component="main" maxWidth="xs" className={classes.container}>
       <div className={classes.root}>
         <Paper elevation={5} className={classes.main} >
           <Box mt={10}>
-          <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Box>
-        <p className={classes.cardHeader}>Welcome</p>
-        </Box>
-            <Button variant="contained" className={classes.buttons} >
-              Sign UP
-              </Button>
-            <Button className={classes.buttons}  variant="contained">Log In</Button>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Box>
+              <p className={classes.cardHeader}>Welcome</p>
+            </Box>
+            <Button className={classes.buttons} variant="contained" onClick={() => history.push('./register')} >Sign UP</Button>
+            <Button className={classes.buttons} variant="contained" onClick={() => history.push('./login')} >Log In</Button>
           </Box>
         </Paper>
       </div>
@@ -78,6 +85,9 @@ export default function LandingPage() {
         <Copyright />
       </Box>
     </Container>
+
   );
 }
+
+
 

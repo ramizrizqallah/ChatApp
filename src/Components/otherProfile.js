@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import '../style/profile.css'
-class profile extends Component{
+import '../style/otherProfile.css'
+class otherProfile extends Component{
     state={
         profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
       }
-      imageHandler = (e) => {
-        const reader = new FileReader();
-        reader.onload = () =>{
-          if(reader.readyState === 2){
-            this.setState({profileImg: reader.result})
-          }
-        }
-        reader.readAsDataURL(e.target.files[0])
-      };
     render(){
         const { profileImg} = this.state
         return(
@@ -23,33 +14,24 @@ class profile extends Component{
         <div className = "col-6  color">
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
-					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
-					<div className="label">
-          <label className="image-upload" htmlFor="input">
-						<i className="material-icons">change your image</i>
-					</label>
-          </div>
+					
+
           
 				</div>
         <div className="name">
         <h3 className="name">Khader Ballout</h3>
         </div>
-
-     
+        <div className="button">
+       <button type="button" class="btn btn-outline-success">Add Khader ballout </button>
+     </div>
+        
       <div class="form-group">
     <label for="exampleFormControlTextarea1">bio</label>
     <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
       </div>
 
-     <div className="button">
-       <button type="button" class="btn btn-outline-success">Save</button>
-     </div>
-     <div className="newFriend">
-     <button type="button" class="btn btn-outline-primary">New contact</button>
-    <button type="button" class="btn btn-outline-success">New Group</button>
-     </div>
-        
-        </div>
+    
+      </div>
         <div className = "col-3 color">3</div>
        
         </div>
@@ -58,4 +40,4 @@ class profile extends Component{
     }
 }
 
-export default profile;
+export default otherProfile;

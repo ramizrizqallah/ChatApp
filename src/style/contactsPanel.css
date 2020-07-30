@@ -9,17 +9,11 @@
 }
 
 
-
-#chats:focus ~ #people{
-    background: url('../assets/people.png') no-repeat center;
-}
-#chats:focus{
+#chats:active{
     background: url('../assets/chatsVisited.png') no-repeat center;
 }
-#people:focus ~ #chats{
-    background: url('../assets/chats.png') no-repeat center;
-}
-#people:focus{
+
+#people:active{
     background: url('../assets/peopleVisited.png') no-repeat center;
 }
 

@@ -8,6 +8,8 @@ export class ContactsPanel extends Component {
 
         }
     }
+
+    
     render() {
         return (
             <div className="contacts-main">
@@ -15,8 +17,8 @@ export class ContactsPanel extends Component {
                 <div className="list">Contacts List</div>
 
                 <div className="buttons">
-                    <button id="chats" onClick={this.onClick}></button>
-                    <button id="people" onClick={this.onClick}></button>
+                    <button id="chats" />
+                    <button id="people" />
                 </div>
             </div>
         )

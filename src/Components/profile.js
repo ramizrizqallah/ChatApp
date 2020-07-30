@@ -41,11 +41,13 @@ class profile extends Component{
     <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
       </div>
 
-    <div className="button">
-    <button type="button" class="btn btn-outline-primary">Edit</button>
-    <button type="button" class="btn btn-outline-success">Save</button>
+      <div className="button">
+       <button type="button" class="btn btn-outline-success">Save</button>
      </div>
-     
+     <div className="newFriend">
+     <button type="button" class="btn btn-outline-primary">New contact</button>
+    <button type="button" class="btn btn-outline-success">New Group</button>
+     </div>
         
         </div>
         <div className = "col-3 color">3</div>

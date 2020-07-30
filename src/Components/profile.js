@@ -39,7 +39,12 @@ class profile extends Component{
       <div class="form-group">
     <label for="exampleFormControlTextarea1">bio</label>
     <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
-  </div>
+      </div>
+
+    <div className="button">
+    <button type="button" class="btn btn-outline-primary">Edit</button>
+    <button type="button" class="btn btn-outline-success">Save</button>
+     </div>
      
         
         </div>

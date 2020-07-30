@@ -5,11 +5,13 @@ import RegisterForm from './Components/RegisterForm';
 import './style/common.css';
 import LogIn from './Components/LogIn';
 import Routing from './Routing';
+import Profile from './Components/profile';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routing />
+ 
+    { <Routing /> }
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -25,7 +25,11 @@ export class MainPage extends Component {
 
 
                 </div>
-                <div className="right-panel"></div>
+                <div className="right-panel">
+                    {/* Add Welcome Panel Below this line ONLY */}
+
+
+                </div>
 
             </div>
         )

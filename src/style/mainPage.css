@@ -8,6 +8,8 @@
 
 /*--------Right Panel CSS----------*/
 .right-panel{
+    display: grid;
+    grid-template-rows: 10% 70% 20%;
 height: 100vh;
 background-color: #1C1B1B;
 

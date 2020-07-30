@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import '../style/profile.css'
-
+import './index.css'
 class profile extends Component{
     state={
         profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
@@ -18,23 +17,30 @@ class profile extends Component{
     render(){
         const { profileImg} = this.state
         return(
-       <div className='container-fluid h-100'>
+        <div className='container-fluid h-100'>
         <div className = "row justify-content-center h-100 ">
         <div className = "col-3 color">1</div>
-        <div className = "col-6  shadow p-3 mb-5 rounded color">
-        <div className="container">
-					<h1 className="heading">Add your Image</h1>
+        <div className = "col-6  color">
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
-					</div>
 					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
 					<div className="label">
-                        <label className="image-upload" htmlFor="input">
-						<i className="material-icons">add_photo_alternate</i>
-						Choose your Photo
+          <label className="image-upload" htmlFor="input">
+						<i className="material-icons">change your image</i>
 					</label>
           </div>
+          
 				</div>
+        <div className="name">
+        <h3 className="name">Khader Ballout</h3>
+        </div>
+
+     
+      <div class="form-group">
+    <label for="exampleFormControlTextarea1">bio</label>
+    <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
+  </div>
+     
         
         </div>
         <div className = "col-3 color">3</div>

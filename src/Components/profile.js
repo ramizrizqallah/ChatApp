@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import './index.css'
+import '../style/profile.css'
+
 class profile extends Component{
     state={
         profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
@@ -28,7 +29,7 @@ class profile extends Component{
 					</div>
 					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
 					<div className="label">
-          <label className="image-upload" htmlFor="input">
+                        <label className="image-upload" htmlFor="input">
 						<i className="material-icons">add_photo_alternate</i>
 						Choose your Photo
 					</label>

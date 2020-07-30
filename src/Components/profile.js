@@ -41,7 +41,7 @@ class profile extends Component{
     <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
       </div>
 
-      <div className="button">
+     <div className="button">
        <button type="button" class="btn btn-outline-success">Save</button>
      </div>
      <div className="newFriend">

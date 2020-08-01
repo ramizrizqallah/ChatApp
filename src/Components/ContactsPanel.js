@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import '../style/contactsPanel.css'
+import ChatCard from './ChatCard'
+
 export class ContactsPanel extends Component {
     constructor(props) {
         super(props)
@@ -9,12 +11,18 @@ export class ContactsPanel extends Component {
         }
     }
 
-    
+
     render() {
         return (
             <div className="contacts-main">
 
-                <div className="list">Contacts List</div>
+                <ul className="list">
+                    {/* Add Each Contact As Items here as List Item using Iteration*/}
+                    <ChatCard avatar={require('../assets/avatar.png')} name={"Ramiz Rizqallah"} text={"Hello World"}  />
+                    <ChatCard avatar={require('../assets/avatar.png')} name={"Khader Ballout"} text={"Welcome to my tutorial"}  />
+                    <ChatCard avatar={require('../assets/avatar.png')} name={"Abed"} text={"Quality Assurance is the best"}  />
+                </ul>
+
 
                 <div className="buttons">
                     <button id="chats" />

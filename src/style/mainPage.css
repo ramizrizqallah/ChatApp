@@ -1,6 +1,6 @@
 .container{
     display: grid;
-    grid-template-columns: 33.3333% auto;
+    grid-template-columns: 25% auto;
     height: fit-content;
 }
 
@@ -30,6 +30,7 @@ background-image: linear-gradient(rgb(0,0,0,0.5), rgb(0,0,0,1));
 .contacts-main{
     grid-area: 2;
 }
+
 .navbar{
 grid-area: 1;
 }

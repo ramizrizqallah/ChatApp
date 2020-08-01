@@ -5,7 +5,10 @@
 }
 
 .list{
+
+    padding-left: 0px;
     grid-area: 1;
+    text-decoration: none;
 }
 
 
@@ -45,4 +48,9 @@
     grid-area: 2;
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.chat-card:hover{
+opacity: 0.70;
+background-color: grey;
 }

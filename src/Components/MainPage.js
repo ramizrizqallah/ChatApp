@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../style/mainPage.css'
 import ContactsPanel from './ContactsPanel'
+import AddAFriend from './AddAFriend'
 
 
 export class MainPage extends Component {
@@ -18,6 +19,10 @@ export class MainPage extends Component {
 
                     {/* Add navBar Below this line ONLY and put its className ="navbar" */}
                     
+
+                     {/* Add navBar Below this line ONLY and put its className ="navbar" */}
+                     {/* OR add two buttons for New Message and New Group */}
+                     
 
 
                     {/* Add Contacts Panel Below this line ONLY */}

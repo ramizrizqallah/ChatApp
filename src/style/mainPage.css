@@ -21,14 +21,23 @@ background-color: #1C1B1B;
 /*--------Left Panel CSS----------*/
 .left-panel{
 display: grid;
-grid-template-rows: 10% 90%;
+grid-template-rows: 10% 10% 80%;
 height: 100vh;
 background-image: linear-gradient(rgb(0,0,0,0.5), rgb(0,0,0,1));
 
 }
-
-.contacts-main{
+#add-a-friend{
+    background: #007EF4 url('../assets/add.png') no-repeat left;
+    background-origin: content-box;
+    text-decoration: none;
+    outline: none;
+    
+}
+.addFriend{
     grid-area: 2;
+}
+.contacts-main{
+    grid-area: 3;
 }
 
 .navbar{

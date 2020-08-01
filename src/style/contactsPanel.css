@@ -5,19 +5,24 @@
 }
 
 .list{
-
+    overflow:hidden; 
+    overflow-y:scroll;
     padding-left: 0px;
     grid-area: 1;
     text-decoration: none;
 }
 
+.list::-webkit-scrollbar {
+    display: none;
+}
+
 
 #chats:active{
-    background: url('../assets/chatsVisited.png') no-repeat center;
+    background: #1F1F1F url('../assets/chatsVisited.png') no-repeat center;
 }
 
 #people:active{
-    background: url('../assets/peopleVisited.png') no-repeat center;
+    background: #1F1F1F url('../assets/peopleVisited.png') no-repeat center;
 }
 
 
@@ -30,7 +35,7 @@
     text-align: center;
     text-decoration: none;
     background-color: #1F1F1F;
-    background: url('../assets/chats.png') no-repeat center;
+    background: #1F1F1F  url('../assets/chats.png')  no-repeat center;
 }
 #people{
     outline: none;
@@ -41,7 +46,7 @@
     vertical-align: middle;
     text-decoration: none;
     background-color: #1F1F1F;
-    background: url('../assets/people.png') no-repeat center;
+    background: #1F1F1F url('../assets/people.png') no-repeat center;
 }
 
 .buttons{

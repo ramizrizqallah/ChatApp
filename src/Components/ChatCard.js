@@ -43,10 +43,12 @@ const avatarStyle = {
     width: '50px'
 }
 const nameStyle = {
+    fontFamily: '"Lucida Console", Courier, monospace',
     margin: '5px 10px',
     color: 'white'
 }
 const textStyle = {
+    fontFamily: '"Lucida Console", Courier, monospace',
     fontSize:'12px',
     margin: '5px 10px',
     color: 'lightgrey'

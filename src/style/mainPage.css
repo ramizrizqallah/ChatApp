@@ -85,6 +85,11 @@ input[type=search] {
     font-size: 18px;
 }
 
+#navAvatar:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
 .newChat {
     justify-items: center;
     grid-area: 2;

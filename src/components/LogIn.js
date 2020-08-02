@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import '../style/common.css';
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-=======
 import { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import { useAuth } from "../context/auth";
->>>>>>> 95b2f1d852b12a007f95efaacfff2a2572fb4086
 
 
 function Login(props) {
@@ -66,20 +62,9 @@ function Login(props) {
                     />
                     <button type="submit" value="Submit" onClick={postLogin}>Sign In</button>
                 </div>
-<<<<<<< HEAD
-                <button type="submit" value="Submit">Sign In</button>
-            
-            </div>
-            
-            </form>
-            
-        )
-    }
-=======
             </div>
         </form>
     )
->>>>>>> 95b2f1d852b12a007f95efaacfff2a2572fb4086
 }
 
 

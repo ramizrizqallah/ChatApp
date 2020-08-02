@@ -9,14 +9,9 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
-<<<<<<< HEAD
-    "express": "^4.17.1",
-    "mongoose": "^5.9.25",
-=======
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
->>>>>>> 95b2f1d852b12a007f95efaacfff2a2572fb4086
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.25",
     "react": "^16.13.1",

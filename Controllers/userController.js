@@ -1,8 +1,8 @@
 //const User = require('../database/models/user')
 const db = require('../database/db')
-const { response } = require('express')
+const  {response}  = require('express')
 const bcrypt = require('bcryptjs')
-
+const jwt = require('jsonwebtoken')
 
 // show the list of user
 // next mean go to next execution
@@ -36,6 +36,7 @@ const showUser = (req, res, next) => {
         })
     })
 }
+
 
 // add new user
 const addUser = (req, res, next) => {
@@ -107,7 +108,8 @@ const updateUser = (req, res, next) => {
         listOfChatRoom: req.body.listOfChatRoom,
         email: req.body.email,
         password: req.body.password,
-        numberOfUnRead: req.body.numberOfUnRead
+        numberOfUnRead: req.body.numberOfUnRead,
+        gender:req.body.gender
     }
 
     db.User.findByIdAndUpdate(userID, { $set: updateData })
@@ -138,6 +140,8 @@ const deleteUser = (req, res, next) => {
             })
         })
 }
+
+
 module.exports = {
     index, updateUser, showUser, deleteUser,
     addUser

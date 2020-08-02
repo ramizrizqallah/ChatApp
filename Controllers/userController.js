@@ -5,15 +5,11 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 var config = require('../config'); 
 // show the list of user
-// next mean go to next execution
 const index = (req, res, next) => {
-    // return all of the user in the db
-    db.User.find().then(response => {
-        // if is okay return response
+    db.User.find().then(response => {       // return all of the user in the db
         res.json({
             response
         })
-        // if not return an error
     }).catch(error => {
         res.json({
             message: 'an Error occurred'
@@ -25,11 +21,9 @@ const index = (req, res, next) => {
 const showUser = (req, res, next) => {
     let userID = req.body.userID
     db.User.findById(userID).then(response => {
-        // if is okay return response
         res.json({
             response
         })
-        // if not return an error
     }).catch(error => {
         res.json({
             message: 'an Error occurred'
@@ -41,9 +35,16 @@ const showUser = (req, res, next) => {
 // add new user
 const addUser = (req, res, next) => {
     let userEmail = req.body.email
+<<<<<<< HEAD
     //check if the email is already exist in the db
     db.User.find({ email: userEmail }).count()
         .then((count) => {
+=======
+    console.log("User Email is", userEmail)
+    db.User.find({ email: userEmail }).count()
+        .then((count) => {
+            console.log("Count is", count)
+>>>>>>> 59a151df915bcc60d880279a2eea5da189135149
             if (count > 0) {
                 console.log("usssseerrr here", userEmail)
                 console.log("count sdjshdflguhgl here", count)

@@ -3,7 +3,7 @@ const db = require('../database/db')
 const { response } = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
+var config = require('../config'); 
 // show the list of user
 // next mean go to next execution
 const index = (req, res, next) => {
@@ -45,6 +45,8 @@ const addUser = (req, res, next) => {
     db.User.find({ email: userEmail }).count()
         .then((count) => {
             if (count > 0) {
+                console.log("usssseerrr here", userEmail)
+                console.log("count sdjshdflguhgl here", count)
                 //Route to Login and show error
                 res.json({
                     doesExist: true
@@ -126,19 +128,8 @@ const deleteUser = (req, res, next) => {
             })
         })
 }
-let auth =  function(req, res) {
-    var token = req.headers['x-access-token'];
-    if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
-    
-    jwt.verify(token, config.secret, function(err, decoded) {
-      if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
-      
-      res.status(200).send(decoded);
-    });
-  };
-
 
 module.exports = {
     index, updateUser, showUser, deleteUser,
-    addUser, auth
+    addUser
 }

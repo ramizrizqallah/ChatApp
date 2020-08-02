@@ -1,5 +1,7 @@
 import React from "react";
 import '../style/common.css';
+import {Link} from 'react-router-dom';
+
 const axios = require('axios')
 
 class RegisterForm extends React.Component {
@@ -37,14 +39,11 @@ class RegisterForm extends React.Component {
         })
     }
     handleSubmit = (event) => {
-
-
         if (this.state.pass != this.state.passTwo) {
             event.preventDefault();
             this.setState({
                 message: "Passwords Do Not Match"
             })
-
         }
         else {
             let finalPass = this.state.pass
@@ -56,6 +55,7 @@ class RegisterForm extends React.Component {
             event.preventDefault();
             //console.log("Matching passwords")
             // send a POST request
+
             axios({
                 method: 'post',
                 url: 'http://localhost:5000/api/user/store',
@@ -65,7 +65,16 @@ class RegisterForm extends React.Component {
                     password: this.state.password,
 
                 }
-            });
+            }).then(res => {
+                if (res.data.doesExist) {
+                    console.log("Response received in Register form", res.data.doesExist)
+                    this.setState({
+                        message: "Username Already Exists, Consider Logging In"
+                    })
+                }
+            }).catch(error => {
+                console.log(error)
+            })
         }
 
     }
@@ -120,6 +129,8 @@ class RegisterForm extends React.Component {
                     </div>
 
                     <button type="submit" value="Submit"> Sign Up </button>
+                    <div>Already Have an Account?</div>
+                    <Link to="/login">Log in</Link>
                 </div>
             </form>
         );

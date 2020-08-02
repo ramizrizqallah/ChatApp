@@ -1,0 +1,62 @@
+.contacts-main{
+    display: grid;
+    grid-template-rows: 80%
+                        20%;
+}
+
+.list{
+    overflow:hidden; 
+    overflow-y:scroll;
+    padding-left: 0px;
+    grid-area: 1;
+    text-decoration: none;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
+}
+
+
+#chats:active{
+    background: #1F1F1F url('../assets/chatsVisited.png') no-repeat center;
+}
+
+#people:active{
+    background: #1F1F1F url('../assets/peopleVisited.png') no-repeat center;
+}
+
+
+#chats{
+    outline: none;
+    border-color: #0000;
+    width: 100%;
+    border-radius: 30px 0px 0px 0px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    background-color: #1F1F1F;
+    background: #1F1F1F  url('../assets/chats.png')  no-repeat center;
+}
+#people{
+    outline: none;
+    border-color: #0000;
+    width: 100%;
+    border-radius: 0px 30px 0px 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: #1F1F1F;
+    background: #1F1F1F url('../assets/people.png') no-repeat center;
+}
+
+.buttons{
+    grid-area: 2;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.chat-card:hover{
+    cursor: pointer;
+    opacity: 0.70;
+    background-color: grey;
+}

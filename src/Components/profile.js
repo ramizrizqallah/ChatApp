@@ -24,31 +24,22 @@ class profile extends Component{
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
 					<input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+				</div>
 					<div className="label">
           <label className="image-upload" htmlFor="input">
-						<i className="material-icons">change your image</i>
+						<i className="material-icons">change Picture</i>
 					</label>
-          </div>
-          
-				</div>
+          </div> 
         <div className="name">
         <h3 className="name">Khader Ballout</h3>
         </div>
-
-     
       <div class="form-group">
     <label for="exampleFormControlTextarea1">bio</label>
     <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
       </div>
-
      <div className="button">
        <button type="button" class="btn btn-outline-success">Save</button>
      </div>
-     <div className="newFriend">
-     <button type="button" class="btn btn-outline-primary">New contact</button>
-    <button type="button" class="btn btn-outline-success">New Group</button>
-     </div>
-        
         </div>
         <div className = "col-3 color">3</div>
        

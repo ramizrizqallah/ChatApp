@@ -6,12 +6,13 @@ import './style/common.css';
 import LogIn from './Components/LogIn';
 import Routing from './Routing';
 import Profile from './Components/profile';
+//import Profile from './Components/otherProfile';
 
 
 ReactDOM.render(
   <React.StrictMode>
- 
-    { <Routing /> }
+ <Profile/>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );

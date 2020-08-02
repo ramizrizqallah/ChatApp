@@ -1,81 +1,76 @@
+.color{
+  background-color: black;
+  height: 100vh;
+}
 
-  .color{
-    background-color: black;
-    height: 100vh;
-  }
-  
-  .img-holder{
-    margin: auto;
-    width: 150px;
-    height: 150px;
-    border: 3px  solid;
-    margin-top: 1rem;
-  }
-  .img{
-    height: 150px;
-    border-radius:100%;
-    object-fit: cover;
-  }
-  #input[type="file"] {
-      display: none;
-  }
-  .label{
-    width: 100%;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-  }
-  .image-upload{
-    margin: auto;
-    width: 200px;
-      height: 50px;
-    color: white;
-    border-radius: 10px;
-    background-color: black;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .name{
-    
-    margin: auto;
-    margin-top: 3rem;
-    width: 250px;
-    height: 50px;
-    color:white;
-    justify-content: center;
-    text-align: center;
-  
-  }
-  .form-group{
-    margin: auto;
-    margin-top: 3rem;
-    width:350px;
-    height:150px;
-    color:white;
-    justify-content: center;
-    text-align: center;
-  }
-  .button{ 
-    margin-top: 1rem;
-    margin:auto;
-    width:350px;
-    height:50px;
-  
-  }
-  i{
-    color:#007EF4;
-  }
-  .newFriend{
-    margin:auto;
-    margin-top: 1rem;
-    width:350px;
-    height:50px;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .newFriend button{
-    margin-left: 30px;
-  }
-  
+.img-holder{
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  border: 3px  solid;
+  margin-top: 1rem;
+}
+.img{
+  height: 150px;
+}
+#input{
+  margin: auto;
+  margin-top: 1rem;
+  width: 250px;
+  height: 50px;
+  color:white;
+  justify-content: center;
+  text-align: center;
+
+}
+#input[type="file"] {
+    display: none;
+}
+.label{
+  margin: auto;
+  margin-top: 20px;
+  width: 150px;
+  height: 50px;
+  justify-content: center;
+  text-align: center;
+}
+.image-upload{
+  margin: auto;
+  width: 150px;
+  height: 50px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.name{
+  margin: auto;
+  margin-top: 1rem;
+  width: 250px;
+  height: 50px;
+  color:white;
+  justify-content: center;
+  text-align: center;
+
+}
+.form-group{
+  margin: auto;
+  margin-top: 1rem;
+  width:350px;
+  height:150px;
+  color:white;
+  justify-content: center;
+  text-align: center;
+}
+.button{ 
+  margin:auto;
+  margin-top: 2rem;
+  width:70px;
+  height:50px;
+  margin-left: 150px;
+
+}
+i{
+  color:#007EF4;
+}

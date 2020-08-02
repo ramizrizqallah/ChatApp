@@ -14,9 +14,6 @@ class otherProfile extends Component{
         <div className = "col-6  color">
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
-					
-
-          
 				</div>
         <div className="name">
         <h3 className="name">Khader Ballout</h3>

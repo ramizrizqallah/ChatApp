@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../style/mainPage.css'
 import ContactsPanel from './ContactsPanel'
 import NewChatRoom from './NewChatRoom'
+import WelcomePanel from './WelcomePanel';
 
 
 export class MainPage extends Component {
@@ -31,6 +32,7 @@ export class MainPage extends Component {
                 </div>
                 <div className="right-panel">
                     {/* Add Welcome Panel Below this line ONLY */}
+                    <WelcomePanel/>
                     
 
                 </div>

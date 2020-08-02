@@ -10,6 +10,7 @@ process.env.SECRET_KEY = 'secret'
 const userController = require('../Controllers/userController')
 
 router.get('/',userController.index)
+router.get('/me',userController.auth)
 router.post('/show',userController.showUser)
 router.post('/store',userController.addUser)
 router.post('/update',userController.updateUser)

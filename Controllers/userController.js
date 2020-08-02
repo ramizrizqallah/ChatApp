@@ -1,19 +1,15 @@
 //const User = require('../database/models/user')
 const db = require('../database/db')
-const  {response}  = require('express')
+const { response } = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 // show the list of user
-// next mean go to next execution
 const index = (req, res, next) => {
-    // return all of the user in the db
-    db.User.find().then(response => {
-        // if is okay return response
+    db.User.find().then(response => {       // return all of the user in the db
         res.json({
             response
         })
-        // if not return an error
     }).catch(error => {
         res.json({
             message: 'an Error occurred'
@@ -25,11 +21,9 @@ const index = (req, res, next) => {
 const showUser = (req, res, next) => {
     let userID = req.body.userID
     db.User.findById(userID).then(response => {
-        // if is okay return response
         res.json({
             response
         })
-        // if not return an error
     }).catch(error => {
         res.json({
             message: 'an Error occurred'
@@ -41,10 +35,10 @@ const showUser = (req, res, next) => {
 // add new user
 const addUser = (req, res, next) => {
     let userEmail = req.body.email
-    console.log("User Email is",userEmail)
-    db.User.find( { email: userEmail } ).count()
+    console.log("User Email is", userEmail)
+    db.User.find({ email: userEmail }).count()
         .then((count) => {
-            console.log("Count is",count)
+            console.log("Count is", count)
             if (count > 0) {
                 //Route to Login and show error
                 console.log('User exists.');
@@ -109,7 +103,7 @@ const updateUser = (req, res, next) => {
         email: req.body.email,
         password: req.body.password,
         numberOfUnRead: req.body.numberOfUnRead,
-        gender:req.body.gender
+        gender: req.body.gender
     }
 
     db.User.findByIdAndUpdate(userID, { $set: updateData })

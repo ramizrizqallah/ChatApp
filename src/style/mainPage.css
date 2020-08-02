@@ -1,0 +1,70 @@
+.container{
+    display: grid;
+    grid-template-columns: 25% auto;
+    height: fit-content;
+}
+
+
+
+/*--------Right Panel CSS----------*/
+.right-panel{
+    display: grid;
+    grid-template-rows: 10% 70% 20%;
+height: 100vh;
+background-color: #1C1B1B;
+
+}
+
+
+
+
+/*--------Left Panel CSS----------*/
+.left-panel{
+display: grid;
+grid-template-rows: 10% 10% 80%;
+height: 100vh;
+background-image: linear-gradient(rgb(0,0,0,0.5), rgb(0,0,0,1));
+
+}
+#add-a-friend{
+    background: #007EF4 url('../assets/add.png') no-repeat left;
+    background-origin: content-box;
+    text-decoration: none;
+    outline: none;
+    font-family: "Lucida Console", Courier, monospace;
+}
+.addFriend{
+    grid-area: 2;
+}
+.contacts-main{
+    grid-area: 3;
+}
+
+.navbar{
+grid-area: 1;
+}
+
+.newChat{
+    justify-items: center;
+    grid-area: 2;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0;
+}
+#newMessage{
+    font-family: "Lucida Console", Courier, monospace;
+    width: 100%;
+    background: #007EF4 url('../assets/newMessage.png') no-repeat left;
+    background-origin: content-box;
+    text-decoration: none;
+    outline: none;
+}
+
+#newGroup{
+    font-family: "Lucida Console", Courier, monospace;
+    width: 100%;
+    background: #007EF4 url('../assets/newGroup.png') no-repeat left;
+    background-origin: content-box;
+    text-decoration: none;
+    outline: none;
+}

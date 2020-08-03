@@ -35,16 +35,9 @@ const showUser = (req, res, next) => {
 // add new user
 const addUser = (req, res, next) => {
     let userEmail = req.body.email
-<<<<<<< HEAD
     //check if the email is already exist in the db
     db.User.find({ email: userEmail }).count()
         .then((count) => {
-=======
-    console.log("User Email is", userEmail)
-    db.User.find({ email: userEmail }).count()
-        .then((count) => {
-            console.log("Count is", count)
->>>>>>> 59a151df915bcc60d880279a2eea5da189135149
             if (count > 0) {
                 console.log("usssseerrr here", userEmail)
                 console.log("count sdjshdflguhgl here", count)

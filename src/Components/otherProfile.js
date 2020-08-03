@@ -8,16 +8,19 @@ class otherProfile extends Component{
     render(){
         const { profileImg} = this.state
         return(
-        <div className='container-fluid h-100'>
-        <div className = "row justify-content-center h-100 ">
-        <div className = "col-3 color">1</div>
-        <div className = "col-6  color">
+        <div className='container'>
+      
+        
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
 				</div>
+
+        
         <div className="name">
         <h3 className="name">Khader Ballout</h3>
         </div>
+
+
         <div className="button">
        <button type="button" class="btn btn-outline-success">Add Khader ballout </button>
      </div>
@@ -27,12 +30,8 @@ class otherProfile extends Component{
     <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
       </div>
 
-    
-      </div>
-        <div className = "col-3 color">3</div>
-       
+
         </div>
-       </div>
         );
     }
 }

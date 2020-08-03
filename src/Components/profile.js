@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-=======
-//import 'bootstrap/dist/css/bootstrap.css'
->>>>>>> 1fce831c90b2e9a722322cfafb484dd86a80d28b
 import '../style/profile.css'
 
 
@@ -22,7 +18,7 @@ class profile extends Component{
     render(){
         const { profileImg} = this.state
         return(
-        <div className='container'>
+        <div className='profile-container'>
         
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
@@ -31,23 +27,19 @@ class profile extends Component{
 
 					<div className="label">
           <label className="image-upload" htmlFor="input">
-<<<<<<< HEAD
 						<i id ="i">change Picture</i>
-=======
-						<i className="material-icons" id="id-i">change Picture</i>
->>>>>>> 1fce831c90b2e9a722322cfafb484dd86a80d28b
 					</label>
           </div> 
 
         <div className="name">
-        <h3 className="name">Khader Ballout</h3>
+              Khader Ballout
         </div>
       <div class="form-group">
     <label >bio</label>
-    <textarea rows="5" ></textarea>
+    <textarea className = "text-area"rows="5" ></textarea>
       </div>
 
-     <div className="">
+     <div >
        <button type="button" class = "button button1">Save</button>
      </div>
         

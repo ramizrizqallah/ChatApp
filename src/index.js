@@ -13,8 +13,15 @@ import MainPage from './Components/MainPage'
 
 ReactDOM.render(
   <React.StrictMode>
+<<<<<<< HEAD
     <Profile/>
     {/* <MainPage/> */}
+=======
+    {/* <Routing /> */}
+    {/* <Profile/> */}
+    {/* <Routing /> */}
+    <MainPage/>
+>>>>>>> 1fce831c90b2e9a722322cfafb484dd86a80d28b
   </React.StrictMode>,
   document.getElementById('root')
 );

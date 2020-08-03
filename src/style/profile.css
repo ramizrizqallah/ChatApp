@@ -92,6 +92,7 @@ height: 100vh;
   background-color: #4CAF50;
 
 }
+<<<<<<< HEAD
 .button1 {
   background-color: #1C1B1B; 
   border: 2px solid #4CAF50;
@@ -101,6 +102,14 @@ height: 100vh;
   color: white;
 }
 #i{
+=======
+
+#id-i{
+>>>>>>> 1fce831c90b2e9a722322cfafb484dd86a80d28b
   color:#007EF4;
   justify-content: center;
+}
+
+h4{
+  
 }

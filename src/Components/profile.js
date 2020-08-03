@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
+=======
+//import 'bootstrap/dist/css/bootstrap.css'
+>>>>>>> 1fce831c90b2e9a722322cfafb484dd86a80d28b
 import '../style/profile.css'
+
+
 class profile extends Component{
     state={
         profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
@@ -25,7 +31,11 @@ class profile extends Component{
 
 					<div className="label">
           <label className="image-upload" htmlFor="input">
+<<<<<<< HEAD
 						<i id ="i">change Picture</i>
+=======
+						<i className="material-icons" id="id-i">change Picture</i>
+>>>>>>> 1fce831c90b2e9a722322cfafb484dd86a80d28b
 					</label>
           </div> 
 

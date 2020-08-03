@@ -80,9 +80,10 @@ text-align: center;
   text-align: center;
   outline: none; 
   background-color: #1C1B1B;
+  color: white;
 }
 .button{ 
-  width:70px;
+  width:auto;
   height:50px;
   justify-self: center; 
   text-align: center;

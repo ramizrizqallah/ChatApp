@@ -8,7 +8,7 @@ class otherProfile extends Component{
     render(){
         const { profileImg} = this.state
         return(
-        <div className='container'>
+        <div className='profile-container'>
       
         
 					<div className="img-holder">
@@ -17,17 +17,16 @@ class otherProfile extends Component{
 
         
         <div className="name">
-        <h3 className="name">Khader Ballout</h3>
+        Khader Ballout
         </div>
 
-
-        <div className="button">
-       <button type="button" class="btn btn-outline-success">Add Khader ballout </button>
+        <div>
+       <button class = "button button1">Add Khader ballout </button>
      </div>
         
       <div class="form-group">
-    <label for="exampleFormControlTextarea1">bio</label>
-    <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
+    <label >bio</label>
+    <textarea className= "text-area"  id="exampleFormControlTextarea1" rows="5" ></textarea>
       </div>
 
 

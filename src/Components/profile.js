@@ -40,7 +40,7 @@ class profile extends Component{
       </div>
 
      <div >
-       <button type="button" class = "button button1">Save</button>
+       <button type="button" className = "button button1">Save</button>
      </div>
         
        

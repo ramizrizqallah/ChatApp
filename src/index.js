@@ -9,8 +9,8 @@ import MainPage from './Components/MainPage'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Routing /> */}
-    <MainPage/>
+    <Routing />
+    {/* <MainPage/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

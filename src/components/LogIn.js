@@ -15,28 +15,30 @@ function Login(props) {
 
     // const referer = props.location.state.referer || '/';
 
-    function postLogin() {
+    function postLogin(event) {
         axios({
             method: 'post',
-            url: 'http://localhost:5000/api/user/login',
+            url: 'http://localhost:5000/api/auth/login',
             data: {
                 email: userName,
                 password: password,
 
             }
-        }).then(result => {
-            if (result.status === 200) {
-                setAuthTokens(result.data);
-                setLoggedIn(true);
-            } else {
-                setIsError(true);
-            }
+        }).then(res => {
+            console.log("Response received in log in form", res)
+                if (res.status === 200) {
+                    setAuthTokens(res.data.token);
+                    setLoggedIn(true);
+                } else {
+                    setIsError(true);
+                }
         }).catch(e => {
             setIsError(true);
         });
+        event.preventDefault();
     }
     if (isLoggedIn) {
-        return <Redirect to={{ pathname: "/login" }} />;
+        return <Redirect to={{ pathname: "/admin" }} />;
     }
     return (
         <form>

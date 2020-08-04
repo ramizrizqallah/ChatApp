@@ -3,6 +3,8 @@ import '../style/contactsPanel.css'
 import ChatCard from './ChatCard'
 import AddAFriend from './AddAFriend'
 import Navbar from './Navbar'
+// import { useAuth } from "../context/auth";
+// import { AuthContext } from "../context/auth";
 
 export class ContactsPanel extends Component {
     constructor(props) {
@@ -12,10 +14,12 @@ export class ContactsPanel extends Component {
 
         }
     }
-
-
     render() {
+       
         return (
+            // <AuthContext.Consumer>
+            // {authTokens => (
+    
             <div className="contacts-main">
                 <ul className="list">
                     {/* Add Each Contact As Items here as List Item using Iteration*/}
@@ -24,7 +28,7 @@ export class ContactsPanel extends Component {
                     <ChatCard avatar={require('../assets/avatar.png')} name={"Khader Ballout"} text={"Welcome to my tutorial"} />
                     <ChatCard avatar={require('../assets/avatar.png')} name={"Abed"} text={"Quality Assurance is the best"} />
                     <ChatCard avatar={require('../assets/avatar.png')} name={"Jannat"} text={"Dont Forget Ahmed!"} />
-                    <ChatCard avatar={require('../assets/avatar.png')} name={"Mays"} text={"Every Problem Has A Solution"} />
+                    <ChatCard avatar={require('../assets/avatar.png')} name={"Mays"} text={"authTokens"} />
                     <ChatCard avatar={require('../assets/avatar.png')} name={"Gharam"} text={"I have a new sticker"} />
 
 
@@ -36,6 +40,8 @@ export class ContactsPanel extends Component {
                     <button id="people" />
                 </div>
             </div>
+            //  )}
+            //  </AuthContext.Consumer>
         )
     }
 }

@@ -4,17 +4,27 @@ import ContactsPanel from './ContactsPanel'
 import NewChatRoom from './NewChatRoom'
 import WelcomePanel from './WelcomePanel';
 import Navbar from './Navbar'
+import { useAuth } from "../context/auth";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
-
-export class MainPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-
-        }
-    }
-    render() {
+function MainPage(){
+    const { authTokens } = useAuth();
+    const [userData, setUserData] = useState("");
+    useEffect(() => {
+        // Your code here
+        axios({
+            method: 'get',
+            url: 'http://localhost:5000/api/auth/me',
+            headers: {
+                'x-access-token': authTokens
+              }
+        }).then(res => {
+            setUserData(res.data);
+        }).catch(e => {
+        });
+      }, []);
+   
         return (
             <div className="main-container">
                 <div className="left-panel">
@@ -34,15 +44,16 @@ export class MainPage extends Component {
                 <div className="right-panel">
                     <div></div>
                     {/* Add Welcome Panel Below this line ONLY */}
-                    <WelcomePanel/>
+                    <WelcomePanel />
                     
 
 
                 </div>
 
             </div>
+
         )
     }
-}
+
 
 export default MainPage

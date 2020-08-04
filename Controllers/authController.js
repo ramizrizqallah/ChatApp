@@ -12,7 +12,7 @@ let verifyUser =  function(req, res) {
     decodedq:decoded });
       
       db.User.findById(decoded.id, 
-        { password: 0 }, // projection-omit the password- itshould never be returned with the other data about the user
+         // projection-omit the password- itshould never be returned with the other data about the user
         function (err, user) {
           if (err) return res.status(500).send("There was a problem finding the user.");
           if (!user) return res.status(404).send("No user found.");
@@ -28,7 +28,7 @@ let login = function(req, res) {
       if (err) return res.status(500).send('Error on the server.');
       if (!user) return res.status(404).send('No user found.');
       
-      var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+      var passwordIsValid = bcrypt.compare(req.body.password, user.password);
       if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
       
       var token = jwt.sign({ id: user._id }, config.secret, {

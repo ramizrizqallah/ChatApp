@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 
 class WelcomePanel extends Component {
+   
     render() {
         return (
-            <div className='container' style={containerStyle}>
-
+            <div className='container2' style={containerStyle}>
                 <div className='main' style={mainStyle} >
 
                     <div className='imgContainer'> <img style={avatarStyle} src={require('../assets/avatar.png')} alt="Avatar" /></div>
-                    <div className='textBoxContainer' style={textBoxContainerStyle} ><input style={textBoxStyle} type='text' placeholder='name' /></div>
-                    <div className='buttonContainer' style={btnContainerStyle}> <button style={buttonStyle}> Edit</button></div>
+                    <div className='textBoxContainer' style={textBoxContainerStyle} > Full Name
+                        {/* <input style={textBoxStyle} type='text' placeholder='name' /> */}
+                        </div>
+                    <div className='buttonContainer' style={btnContainerStyle}> <button  style={buttonStyle}> Edit</button></div>
 
                 </div>
                 <div className='welcome' style={welcomeStyle}>
@@ -26,14 +28,11 @@ const avatarStyle = {
     width: '200px',
     height: '200px',
     borderRadius: '50%',
-    marginLeft: '60px',
 }
 const mainStyle = {
+    gridArea:'2',
     display: 'grid',
-    gridTemplateColumns: '25% 35% 40%',
-    marginTop: '60px',
-    marginLeft: '60px',
-    // gridArea : '1'
+    gridTemplateColumns: 'auto auto auto',
     height: '300px'
 }
 
@@ -51,12 +50,16 @@ const textBoxStyle = {
     color: 'white'
 }
 const textBoxContainerStyle = {
-    width: '350px',
-    marginTop: '130px',
-    paddingLeft: '50px'
-
+    fontFamily:'"Lucida Console", Courier, monospace',
+    fontSize:'40px',
+    color:'white',
+    position:'relative',
+    height:'40px',
+    top:'155px'
 }
+
 const buttonStyle = {
+    cursor:'pointer',
     float: 'left',
     width: '50px',
     border: 'none',
@@ -69,16 +72,16 @@ const buttonStyle = {
 }
 const btnContainerStyle = {
     paddingLeft: '0',
-    marginTop: '160px',
+    position:'relative',
+    top: '160px',
 }
 const containerStyle = {
+    textAlign:'center',
+    justifyContent:'center',
     display: 'inline'
 }
 const welcomeStyle = {
-    marginLeft: '220px',
     color: 'white',
-    marginTop: '30px'
-
 }
 const headerStyle = {
     fontSize: '35px',

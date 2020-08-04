@@ -13,9 +13,9 @@ import MainPage from './Components/MainPage'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Routing /> */}
+    <Routing />
     {/* <Profile/> */}
-    <MainPage/>
+    {/* <MainPage/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

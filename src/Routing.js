@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import LandingPage from './Components/LandingPage';
 import MainPage from './Components/MainPage';
 
+
 function Routing(props) {
     const [authTokens, setAuthTokens] = useState();
     const setTokens = (data) => {
@@ -20,6 +21,7 @@ function Routing(props) {
                 <Route exact path="/register" component={RegisterForm} />
                 <Route exact path="/login" component={LogIn} />
                 <PrivateRoute path="/admin" component={MainPage} />
+       
             </Router>
         </AuthContext.Provider>
 

@@ -14,6 +14,7 @@ router.post('/show',userController.showUser)
 router.post('/store',userController.addUser)
 router.post('/update',userController.updateUser)
 router.post('/delete',userController.deleteUser)
+router.post('/search',userController.userSearch)
 
 
 module.exports = router

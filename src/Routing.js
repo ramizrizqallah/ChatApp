@@ -19,7 +19,6 @@ function Routing(props) {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/register" component={RegisterForm} />
                 <Route exact path="/login" component={LogIn} />
-                {/* <Route exact path="/admin" component={MainPage} /> */}
                 <PrivateRoute path="/admin" component={MainPage} />
             </Router>
         </AuthContext.Provider>

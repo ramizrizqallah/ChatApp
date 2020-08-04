@@ -38,16 +38,13 @@ function RegisterForm() {
 
                 }
             }).then(res => {
-                console.log("Response received in Register form lllllllllrs", res)
                 if (res.status === 200) {
                     setAuthTokens(res.data.token);
-                    console.log("rrrrrrr last thing: ", setAuthTokens )
                     setLoggedIn(true);
                 } else {
                     setIsError(true);
                 }
                 if (res.data.doesExist) {
-
                     setMessage("Username Already Exists, Consider Logging In")
                 }
             }).catch(error => {

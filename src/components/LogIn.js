@@ -12,7 +12,8 @@ function Login(props) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { setAuthTokens } = useAuth();
-
+    const { authTokens } = useAuth();
+    
     // const referer = props.location.state.referer || '/';
 
     function postLogin(event) {
@@ -25,10 +26,9 @@ function Login(props) {
 
             }
         }).then(res => {
-            console.log("Response received in log in form", res)
                 if (res.status === 200) {
                     setAuthTokens(res.data.token);
-                    setLoggedIn(true);
+                    setLoggedIn(true)
                 } else {
                     setIsError(true);
                 }

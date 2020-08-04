@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css'
+//import 'bootstrap/dist/css/bootstrap.css'
 import '../style/otherProfile.css'
 class otherProfile extends Component{
     state={
@@ -8,31 +8,29 @@ class otherProfile extends Component{
     render(){
         const { profileImg} = this.state
         return(
-        <div className='container-fluid h-100'>
-        <div className = "row justify-content-center h-100 ">
-        <div className = "col-3 color">1</div>
-        <div className = "col-6  color">
+        <div className='profile-container'>
+      
+        
 					<div className="img-holder">
 						<img src={profileImg} alt="" id="img" className="img" />
 				</div>
+
+        
         <div className="name">
-        <h3 className="name">Khader Ballout</h3>
+        Khader Ballout
         </div>
-        <div className="button">
-       <button type="button" class="btn btn-outline-success">Add Khader ballout </button>
+
+        <div>
+       <button class = "button button1">Add Khader ballout </button>
      </div>
         
       <div class="form-group">
-    <label for="exampleFormControlTextarea1">bio</label>
-    <textarea class="form-control " id="exampleFormControlTextarea1" rows="5" ></textarea>
+    <label >bio</label>
+    <textarea className= "text-area"  id="exampleFormControlTextarea1" rows="5" ></textarea>
       </div>
 
-    
-      </div>
-        <div className = "col-3 color">3</div>
-       
+
         </div>
-       </div>
         );
     }
 }

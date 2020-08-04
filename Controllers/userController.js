@@ -124,7 +124,22 @@ const deleteUser = (req, res, next) => {
         })
 }
 
+ const userSearch = (req,res,next) =>{
+     let fullName = req.body.fullName
+     db.User.createIndexes({"fullName":fullName})
+     db.User.find({$text:{$search:""}},
+     {score:{$meta: "textScore"}}).sort({score:{$meta:"textScore"}}).then(()=>{
+         res.json({
+             message:"user found successfully"
+         })
+     }).catch(error =>{
+         res.json({
+             message:"an error occurred"
+         })
+     })
+ }
+
 module.exports = {
     index, updateUser, showUser, deleteUser,
-    addUser
+    addUser,userSearch
 }

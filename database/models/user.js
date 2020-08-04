@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         type:String
     },
     avatar:{
-        type:String
+        type:Object
     },
     listOfFriends:{
         type:Array

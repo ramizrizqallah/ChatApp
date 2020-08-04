@@ -81,20 +81,7 @@ const addUser = (req, res, next) => {
 const updateUser = (req, res, next) => {
     let userID = req.body.userID
 
-    let updateData = {
-        fullName: req.body.fullName,
-        Id: req.body.Id,
-        bio: req.body.bio,
-        avatar: req.body.avatar,
-        listOfFriends: req.body.listOfFriends,
-        listOfChatRoom: req.body.listOfChatRoom,
-        email: req.body.email,
-        password: req.body.password,
-        numberOfUnRead: req.body.numberOfUnRead,
-        gender: req.body.gender
-    }
-
-    db.User.findByIdAndUpdate(userID, { $set: updateData })
+    db.User.findByIdAndUpdate(userID, req.body)
         .then(() => {
             res.json({
                 message: 'user updated successfully'

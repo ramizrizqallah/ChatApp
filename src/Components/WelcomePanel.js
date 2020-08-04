@@ -5,11 +5,12 @@ class WelcomePanel extends Component {
     render() {
         return (
             <div className='container' style={containerStyle}>
+
                 <div className='main' style={mainStyle} >
 
                     <div className='imgContainer'> <img style={avatarStyle} src={require('../assets/avatar.png')} alt="Avatar" /></div>
                     <div className='textBoxContainer' style={textBoxContainerStyle} ><input style={textBoxStyle} type='text' placeholder='name' /></div>
-                    <div className='buttonContainer' style={btnContainerStyle}> <button  style={buttonStyle}> Edit</button></div>
+                    <div className='buttonContainer' style={btnContainerStyle}> <button style={buttonStyle}> Edit</button></div>
 
                 </div>
                 <div className='welcome' style={welcomeStyle}>
@@ -77,7 +78,7 @@ const welcomeStyle = {
     marginLeft: '220px',
     color: 'white',
     marginTop: '30px'
-    
+
 }
 const headerStyle = {
     fontSize: '35px',

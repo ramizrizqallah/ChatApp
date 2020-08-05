@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         type:String
     },
     avatar:{
-        type:String
+        type:Object
     },
     listOfFriends:{
         type:Array
@@ -34,6 +34,7 @@ const userSchema = new mongoose.Schema({
 },
     {timestamps:true})
 
+userSchema.index({"fullName":"text"})
 let user = mongoose.model('user',userSchema);
 
 module.exports = user

@@ -81,20 +81,7 @@ const addUser = (req, res, next) => {
 const updateUser = (req, res, next) => {
     let userID = req.body.userID
 
-    let updateData = {
-        fullName: req.body.fullName,
-        Id: req.body.Id,
-        bio: req.body.bio,
-        avatar: req.body.avatar,
-        listOfFriends: req.body.listOfFriends,
-        listOfChatRoom: req.body.listOfChatRoom,
-        email: req.body.email,
-        password: req.body.password,
-        numberOfUnRead: req.body.numberOfUnRead,
-        gender: req.body.gender
-    }
-
-    db.User.findByIdAndUpdate(userID, { $set: updateData })
+    db.User.findByIdAndUpdate(userID, req.body)
         .then(() => {
             res.json({
                 message: 'user updated successfully'
@@ -123,7 +110,22 @@ const deleteUser = (req, res, next) => {
         })
 }
 
+ const userSearch = (req,res,next) =>{
+     let fullName = req.body.fullName
+     db.User.createIndexes({"fullName":fullName})
+     db.User.find({$text:{$search:""}},
+     {score:{$meta: "textScore"}}).sort({score:{$meta:"textScore"}}).then(()=>{
+         res.json({
+             message:"user found successfully"
+         })
+     }).catch(error =>{
+         res.json({
+             message:"an error occurred"
+         })
+     })
+ }
+
 module.exports = {
     index, updateUser, showUser, deleteUser,
-    addUser
+    addUser,userSearch
 }

@@ -1,19 +1,15 @@
 //const User = require('../database/models/user')
 const db = require('../database/db')
-const  {response}  = require('express')
+const { response } = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
+var config = require('../config'); 
 // show the list of user
-// next mean go to next execution
 const index = (req, res, next) => {
-    // return all of the user in the db
-    db.User.find().then(response => {
-        // if is okay return response
+    db.User.find().then(response => {       // return all of the user in the db
         res.json({
             response
         })
-        // if not return an error
     }).catch(error => {
         res.json({
             message: 'an Error occurred'
@@ -25,11 +21,9 @@ const index = (req, res, next) => {
 const showUser = (req, res, next) => {
     let userID = req.body.userID
     db.User.findById(userID).then(response => {
-        // if is okay return response
         res.json({
             response
         })
-        // if not return an error
     }).catch(error => {
         res.json({
             message: 'an Error occurred'
@@ -41,78 +35,53 @@ const showUser = (req, res, next) => {
 // add new user
 const addUser = (req, res, next) => {
     let userEmail = req.body.email
-    console.log("User Email is",userEmail)
-    db.User.find( { email: userEmail } ).count()
+    //check if the email is already exist in the db
+    db.User.find({ email: userEmail }).count()
         .then((count) => {
-            console.log("Count is",count)
             if (count > 0) {
+                console.log("usssseerrr here", userEmail)
+                console.log("count sdjshdflguhgl here", count)
                 //Route to Login and show error
-                console.log('User exists.');
                 res.json({
                     doesExist: true
                 })
             } else {
-                console.log('User does not exist.');
+                var hashedPassword = bcrypt.hashSync(req.body.password, 8);
+                let user = new db.User({
+                    fullName: req.body.fullName,
+                    bio: req.body.bio,
+                    avatar: req.body.avatar,
+                    listOfFriends: req.body.listOfFriends,
+                    listOfChatRoom: req.body.listOfChatRoom,
+                    password: hashedPassword,
+                    email: userEmail,
+                    numberOfUnRead: req.body.numberOfUnRead
 
-
-                bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
-                    if (err) {
-                        res.json({
-                            error: err
-                        })
-                    }
-                    let user = new db.User({
-                        fullName: req.body.fullName,
-                        Id: req.body.Id,
-                        bio: req.body.bio,
-                        avatar: req.body.avatar,
-                        listOfFriends: req.body.listOfFriends,
-                        listOfChatRoom: req.body.listOfChatRoom,
-                        password: hashedPass,
-                        email: req.body.email,
-                        numberOfUnRead: req.body.numberOfUnRead
-
+                })
+                user.save().then(response => {
+                    // if is okay return response
+                    // create a token
+                    var token = jwt.sign({ id: user._id }, config.secret, {
+                        expiresIn: 86400 // expires in 24 hours
+                    });
+                    res.status(200).send({ auth: true, token: token });
+                    res.json({
+                        message: 'user Added successfully'
                     })
-                    user.save().then(response => {
-                        // if is okay return response
-                        res.json({
-                            message: 'user Added successfully'
-                        })
-                        // if not return an error
-                    }).catch(error => {
-                        res.json({
-                            message: 'an Error occurred'
-                        })
+                    // if not return an error
+                }).catch(error => {
+                    res.json({
+                        message: 'an Error occurred'
                     })
                 })
             }
         });
-
-
-
-
-
 }
-
-
 //update a user
 const updateUser = (req, res, next) => {
     let userID = req.body.userID
 
-    let updateData = {
-        fullName: req.body.fullName,
-        Id: req.body.Id,
-        bio: req.body.bio,
-        avatar: req.body.avatar,
-        listOfFriends: req.body.listOfFriends,
-        listOfChatRoom: req.body.listOfChatRoom,
-        email: req.body.email,
-        password: req.body.password,
-        numberOfUnRead: req.body.numberOfUnRead,
-        gender:req.body.gender
-    }
-
-    db.User.findByIdAndUpdate(userID, { $set: updateData })
+    db.User.findByIdAndUpdate(userID, req.body)
         .then(() => {
             res.json({
                 message: 'user updated successfully'
@@ -141,8 +110,22 @@ const deleteUser = (req, res, next) => {
         })
 }
 
+ const userSearch = (req,res,next) =>{
+     let fullName = req.body.fullName
+     db.User.createIndexes({"fullName":fullName})
+     db.User.find({$text:{$search:""}},
+     {score:{$meta: "textScore"}}).sort({score:{$meta:"textScore"}}).then(()=>{
+         res.json({
+             message:"user found successfully"
+         })
+     }).catch(error =>{
+         res.json({
+             message:"an error occurred"
+         })
+     })
+ }
 
 module.exports = {
     index, updateUser, showUser, deleteUser,
-    addUser
+    addUser,userSearch
 }

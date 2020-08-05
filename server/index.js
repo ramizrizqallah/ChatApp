@@ -8,12 +8,16 @@ var bodyParser = require("body-parser");
 const MessageRoute = require('../routes/message')
 const userRoute = require('../routes/user')
 const chatRoomRoute = require('../routes/chatRoom')
-
+const authRoute = require('../routes/auth')
 // var db = require("../database");
 // app.use(morgan('dev'))
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
+
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+
+app.use(bodyParser.json({limit: '50mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
 
 // add middleware
@@ -30,3 +34,4 @@ app.listen(5000, () => {
 app.use('/api/user', userRoute)
 app.use('/api/chatRoom', chatRoomRoute)
 app.use('/api/message', MessageRoute)
+app.use('/api/auth', authRoute)

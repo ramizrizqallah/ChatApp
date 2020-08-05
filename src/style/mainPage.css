@@ -1,0 +1,118 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+.main-container {
+    display: grid;
+    grid-template-columns: 25% auto;
+    height: fit-content;
+}
+
+/*--------Right Panel CSS----------*/
+
+.right-panel {
+    display: grid;
+    grid-template-rows: 10% 70% 20%;
+    height: 100vh;
+    background-color: #1C1B1B;
+}
+
+/*--------Left Panel CSS----------*/
+
+.left-panel {
+    display: grid;
+    grid-template-rows: 10% 10% 80%;
+    height: 100vh;
+    background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 1));
+}
+
+#add-a-friend {
+    background: #007EF4 url('../assets/add.png') no-repeat left;
+    background-origin: content-box;
+    text-decoration: none;
+    outline: none;
+    font-family: "Lucida Console", Courier, monospace;
+}
+
+.addFriend {
+    grid-area: 2;
+}
+
+.contacts-main {
+    grid-area: 3;
+}
+
+/*--------NavaBar  CSS----------*/
+
+.navbar {
+    grid-area: 1;
+    margin: 5px;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.search-container {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+input[type=search] {
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color: white;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+    font-family: "Lucida Console", Courier, monospace;
+}
+
+#searchBtn {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    border: 1px solid #007EF4;
+    background: #007EF4;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+}
+
+#navAvatar:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.newChat {
+    justify-items: center;
+    grid-area: 2;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0;
+}
+
+#newMessage {
+    font-family: "Lucida Console", Courier, monospace;
+    width: 100%;
+    background: #007EF4 url('../assets/newMessage.png') no-repeat left;
+    background-origin: content-box;
+    text-decoration: none;
+    outline: none;
+    text-align: right;
+}
+
+#newGroup {
+    font-family: "Lucida Console", Courier, monospace;
+    width: 100%;
+    background: #007EF4 url('../assets/newGroup.png') no-repeat left;
+    background-origin: content-box;
+    text-decoration: none;
+    outline: none;
+    text-align: right;
+}

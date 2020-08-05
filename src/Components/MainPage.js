@@ -28,16 +28,18 @@ function MainPage(){
         return (
             <div className="main-container">
                 <div className="left-panel">
-
+                    <div style={border}>
                     {/* Add navBar Below this line ONLY and put its className ="navbar" */}
                     <Navbar avatar={require('../assets/avatar.png')} />
+                    </div>
 
                     {/*  add two buttons for New Message and New Group */}
                     <NewChatRoom />
 
-
+                    
                     {/* Add Contacts Panel Below this line ONLY */}
-                    <ContactsPanel />
+                    <ContactsPanel user={userData}/>
+                    
 
 
                 </div>
@@ -55,5 +57,10 @@ function MainPage(){
         )
     }
 
+    const border = {
+        backgroundColor:'#3d3d3d',
+        borderRadius:'0px 0px 20px 20px'
+
+    }
 
 export default MainPage

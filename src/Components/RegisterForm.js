@@ -62,6 +62,7 @@ function RegisterForm() {
                 <div className="cardHeader">Create Account</div>
                 <div className="inputGroup">
                     <input
+                    className="logginginfo"
                         type="text"
                         name="name"
                         id="name"
@@ -73,6 +74,7 @@ function RegisterForm() {
 
                     />
                     <input
+                    className="logginginfo"
                         type="email"
                         name="email"
                         id="email"
@@ -85,6 +87,7 @@ function RegisterForm() {
                         }}
                     />
                     <input
+                    className="logginginfo"
                         type="password"
                         name="password"
                         id="password"
@@ -97,6 +100,7 @@ function RegisterForm() {
                         }}
                     />
                     <input
+                    className="logginginfo"
                         type="password"
                         name="passwordConfirm"
                         id="passwordConfirm"
@@ -116,7 +120,7 @@ function RegisterForm() {
 
                 </div>
 
-                <button type="submit" value="Submit" onClick={handleSubmit}> Sign Up </button>
+                <button className="submittingButton" type="submit" value="Submit" onClick={handleSubmit}> Sign Up </button>
                 <div>Already Have an Account?</div>
                 <Link to="/login">Log in</Link>
             </div>

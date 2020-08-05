@@ -47,27 +47,30 @@ function Login(props) {
                 <div className="inputGroup">
 
                     <input
+                    className="logginginfo"
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="sophie@example.com"
+                        placeholder="Email"
                         value={userName}
                         onChange={e => {
                             setUserName(e.target.value);
                         }}
                     />
                     <input
+                    className="logginginfo"
                         type="password"
                         name="password"
                         id="password"
-                        placeholder="password"
+                        placeholder="Password"
                         value={password}
                         pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^*()]).{8,}'
                         onChange={e => {
                             setPassword(e.target.value);
                         }}
                     />
-                    <button type="submit" value="Submit" onClick={postLogin}>Sign In</button>
+                    <button className="submittingButton" type="submit" value="Submit" onClick={postLogin}>Sign In</button>
+                    
                 </div>
             </div>
         </form>

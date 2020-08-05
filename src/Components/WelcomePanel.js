@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Link} from "react-router-dom";
 class WelcomePanel extends Component {
-   
+  
+  
     render() {
         return (
             <div className='container2' style={containerStyle}>
                 <div className='main' style={mainStyle} >
 
                     <div className='imgContainer'> <img style={avatarStyle} src={require('../assets/avatar.png')} alt="Avatar" /></div>
-                    <div className='textBoxContainer' style={textBoxContainerStyle} > Full Name
+                    <div className='textBoxContainer' style={textBoxContainerStyle} > {this.props.user.fullName}
                         {/* <input style={textBoxStyle} type='text' placeholder='name' /> */}
                         </div>
-                    <div className='buttonContainer' style={btnContainerStyle}> <button  style={buttonStyle}> Edit</button></div>
+                    <div className='buttonContainer' style={btnContainerStyle}> <Link to="/profile"><button  style={buttonStyle} onClick={this.handleClick}> Edit</button></Link></div>
 
                 </div>
                 <div className='welcome' style={welcomeStyle}>

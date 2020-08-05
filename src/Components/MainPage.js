@@ -46,7 +46,7 @@ function MainPage(){
                 <div className="right-panel">
                     <div></div>
                     {/* Add Welcome Panel Below this line ONLY */}
-                    <WelcomePanel />
+                    <WelcomePanel user={userData}/>
                     
 
 

@@ -6,11 +6,11 @@ const messageSchema = new mongoose.Schema({
         
     },
     idOfSender:{
-        type:Number,
+        type:String,
         
     },
     idOfReceiver:{
-        type:Number,
+        type:String,
         
     },
     text:{

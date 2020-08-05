@@ -24,7 +24,8 @@
 }
 
 #add-a-friend {
-    height: 30px;
+    height: 35px;
+    width: 70%;
     border-radius: 20px;
     color: white;
     background: #007EF4 url('../assets/add.png') no-repeat left;

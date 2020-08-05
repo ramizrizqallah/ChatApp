@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import LandingPage from './Components/LandingPage';
 import MainPage from './Components/MainPage';
 import Profile from './Components/Profile';
+import OtherProfile from './Components/OtherProfile';
 
 function Routing(props) {
     const [authTokens, setAuthTokens] = useState();
@@ -22,6 +23,7 @@ function Routing(props) {
                 <Route exact path="/login" component={LogIn} />
                 <PrivateRoute path="/admin" component={MainPage} />
                 <PrivateRoute path="/profile" component={Profile} />
+                <PrivateRoute path="/otherProfile" component={OtherProfile} />
             </Router>
         </AuthContext.Provider>
 

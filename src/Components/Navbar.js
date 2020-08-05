@@ -10,7 +10,7 @@ export default function Navbar(props) {
 
             <img id="navAvatar" style={avatarStyle} src={props.avatar} alt="Avatar" onClick={() => window.open("./login", "_blank")} />
             <div className="search-container">
-                <input type="search" results="5" autosave="some_unique_value" placeholder="Search"  ></input>
+                <input id="searchForContacts" type="search" results="5" autosave="some_unique_value" placeholder="Search"  ></input>
                 <button id="searchBtn" type="submit"><i className="fa fa-search"></i></button>
             </div>
         </div >

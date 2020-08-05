@@ -6,7 +6,7 @@ import PrivateRoute from './Components/PrivateRoute';
 import React, { useState } from "react";
 import LandingPage from './Components/LandingPage';
 import MainPage from './Components/MainPage';
-
+import profile from './Components/profile';
 
 function Routing(props) {
     const [authTokens, setAuthTokens] = useState();
@@ -21,7 +21,7 @@ function Routing(props) {
                 <Route exact path="/register" component={RegisterForm} />
                 <Route exact path="/login" component={LogIn} />
                 <PrivateRoute path="/admin" component={MainPage} />
-       
+                <PrivateRoute path="/profile" component={profile} />
             </Router>
         </AuthContext.Provider>
 

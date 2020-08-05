@@ -38,7 +38,7 @@ function Login(props) {
         event.preventDefault();
     }
     if (isLoggedIn) {
-        return <Redirect to={{ pathname: "/otherProfile" }} />;
+        return <Redirect to={{ pathname: "/admin" }} />;
     }
     return (
         <form>

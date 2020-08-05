@@ -10,8 +10,8 @@ const userSchema = new mongoose.Schema({
     bio: {
         type: String
     },
-    avatar: {
-        type: String
+    avatar:{
+        type:Object
     },
     listOfFriends: {
         type: Array
@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
 },
     { timestamps: true })
 
-
-let user = mongoose.model('user', userSchema);
+userSchema.index({"fullName":"text"})
+let user = mongoose.model('user',userSchema);
 
 module.exports = user

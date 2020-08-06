@@ -19,11 +19,14 @@ export default function ChatCard(props) {
                 <div>
                     <h4 style={nameStyle}>{props.name}</h4>
                     {/* Below is for the text in Chats or peoples' Tab */}
+                    
                     <p style={textStyle}>{props.text}</p>
+                    <p style={textStyle}>{props.bio}</p>
+                
                 </div>
-
+                    {}
                 <div style={{color:'white'}}>
-                    now
+                   {props.receivedAt}
 
                 </div>
             </li>
